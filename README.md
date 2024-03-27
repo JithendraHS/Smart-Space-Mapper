@@ -1,5 +1,4 @@
 # Smart-Space-Mapper
-# Smart Space Mapper Readme
 
 ## Introduction
 
