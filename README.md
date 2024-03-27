@@ -18,6 +18,8 @@ The integration of these hardware components aims to create a user-friendly solu
 The technical description provides an in-depth overview of each aspect of the Smart Space Mapper project.
 
 ### Board Design
+![image](https://github.com/JithendraHS/Smart-Space-Mapper/assets/37045723/4cc586d6-8518-48f8-87c9-c285dc5022bc)
+![image](https://github.com/JithendraHS/Smart-Space-Mapper/assets/37045723/302c46c6-cdd2-48e6-9b87-9f287a4a634d)
 
 #### RP2040 Microcontroller Overview:
 
@@ -54,11 +56,16 @@ The OLED display and navigation buttons offer an intuitive user interface, with 
 ### Hardware Setup
 
 The hardware setup involves circuit connections centered around the RP2040 microcontroller, facilitating communication between components.
+![image](https://github.com/JithendraHS/Smart-Space-Mapper/assets/37045723/1b064354-f0ad-41b2-9a14-b04a2f10d590)
 
 ### Firmware Design
 
 The firmware design orchestrates low-level programming aspects, ensuring efficient communication and coordination among hardware components. It employs protocols such as I2C and SPI for synchronized operation.
+![image](https://github.com/JithendraHS/Smart-Space-Mapper/assets/37045723/d7f0d2f1-9d47-4e1f-b7ec-fd57932fbbb6)
+
 
 ## Conclusion
 
-The Smart Space Mapper project aims to simplify indoor space mapping tasks through the integration of advanced hardware components and meticulous firmware design. This document provides a comprehensive overview of the project's technical aspects, laying the foundation for further development and optimization.
+The Smart Space Mapper project aims to simplify indoor space mapping tasks through the integration of advanced hardware components and meticulous firmware design. This document attached under report folder provides a comprehensive overview of the project's technical aspects, laying the foundation for further development and optimization.
+
+
