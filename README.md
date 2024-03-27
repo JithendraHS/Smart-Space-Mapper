@@ -9,7 +9,7 @@ The Smart Space Mapper project addresses the challenge of accurately measuring i
 
 The Smart Space Mapper integrates advanced hardware components to create a cohesive system for indoor space mapping and optimization. The RP2040 microcontroller serves as the computational core, orchestrating the functionalities of the device. The project incorporates the TF-Luna LiDAR sensor for precise distance measurements and the MPU6050 sensor for orientation data. The user interface is realized through a 1.5-inch OLED display with intuitive navigation buttons.
 
-![Smart Space Mapper System Block Diagram](images/system_block_diagram.png)
+![image](https://github.com/JithendraHS/Smart-Space-Mapper/assets/37045723/d6a03766-1141-455d-be51-b069f7e1d819)
 
 The integration of these hardware components aims to create a user-friendly solution, simplifying specific tasks while laying the foundation for intelligent indoor space optimization.
 
