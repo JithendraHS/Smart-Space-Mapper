@@ -15,7 +15,7 @@
 */
 #include "lidar.h"
 #include "i2c_code.h"
-#include "stdio.h"
+#include "debug.h"
 
 // I2C address of the LIDAR device
 static const uint8_t LIDAR = 0x10;
@@ -46,8 +46,7 @@ uint16_t read_lidar() {
     // Combine low and high bytes to get the distance
     uint16_t distance = (data[1] << 8) | data[0];
 
-    // Print the results (you can remove this if not needed)
-    printf("Distance: %d\r\n", distance);
+    DEBUG_PRINTF("Distance: %d\r\n", distance);
 
     return distance;
 }

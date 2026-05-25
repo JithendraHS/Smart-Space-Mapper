@@ -15,8 +15,8 @@
  */
 #include "area.h"
 #include "string.h"
-#include "stdio.h"
 #include "pico/stdlib.h"
+#include "debug.h"
 #include <math.h>
 #include "lidar.h"
 #include "mpu6050.h"
@@ -48,7 +48,7 @@ double_array calculate_area(char * shape, UBYTE *BlackImage){
     }else if(strcmp(shape, "Irregular menu") == 0){
         return calculate_area_Irregular(BlackImage);
     }else{
-        printf("Unknown command\n\r");
+        DEBUG_PRINTF("Unknown command\n\r");
     }
 }
 
@@ -77,7 +77,7 @@ double_array calculate_area_irr_shape(char * shape, UBYTE *BlackImage){
     }else if(strcmp(shape, "shape5") == 0){
         return calculate_area_shape5(BlackImage);
     }else{
-        printf("Unknown command\n\r");
+        DEBUG_PRINTF("Unknown command\n\r");
     }
 }
 
@@ -129,7 +129,7 @@ uint16_t capture_distance(UBYTE *BlackImage){
 
         // Return the captured distance if the user presses the red button
         if (!gpio11_state) {
-            printf("Captured distance\n\r");
+            DEBUG_PRINTF("Captured distance\n\r");
             sleep_ms(200);
             return distance;
         }
@@ -309,7 +309,7 @@ double_array calculate_area_Irregular(UBYTE *BlackImage){
             sleep_ms(200);
             // Allow the user to move the cursor and select a shape
             shape = move_cursor_irr_menu(BlackImage);
-            printf("GPIO10 is high (pressed)! and shape %s\n\r", shape);
+            DEBUG_PRINTF("GPIO10 is high (pressed)! and shape %s\n\r", shape);
         }
         
         // Perform actions based on the GPIO11 state

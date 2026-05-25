@@ -12,6 +12,9 @@ set(CMAKE_CXX_STANDARD 17)
 # Creates a pico-sdk subdirectory in our project for the libraries
 pico_sdk_init()
 
+# Verbose UART logs (LiDAR, MPU6050, button traces). Off by default for production.
+option(SS_MAPPER_DEBUG "Enable SS Mapper debug UART logging" OFF)
+
 # Tell CMake where to find the executable source file
 add_executable(${PROJECT_NAME}
     main.c
@@ -35,6 +38,10 @@ target_link_libraries(${PROJECT_NAME}
     pico_stdlib
     hardware_i2c
 )
+
+if(SS_MAPPER_DEBUG)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE SS_MAPPER_DEBUG=1)
+endif()
 
 # Enable usb output, disable uart output
 pico_enable_stdio_usb(${PROJECT_NAME} 0)
