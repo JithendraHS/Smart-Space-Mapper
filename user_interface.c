@@ -19,8 +19,8 @@
 */
 #include "user_interface.h"
 #include "string.h"
-#include <stdio.h>
 #include "pico/stdlib.h"
+#include "debug.h"
 #include "button.h"
 #include "area.h"
 
@@ -56,7 +56,7 @@ void user_interface() {
             sleep_ms(200);
             // Move cursor to select a shape
             shape = move_cursor(BlackImage);
-            printf("GPIO10 is high (pressed)! and shape %s\n\r", shape);
+            DEBUG_PRINTF("GPIO10 is high (pressed)! and shape %s\n\r", shape);
         }
         
         // Perform actions based on the GPIO11 state
@@ -74,7 +74,7 @@ void user_interface() {
             OLED_Clear();
             // Use memset to set all values to 0x00
             memset(BlackImage, 0x00, OLED_IMAGE_SIZE);
-            printf("GPIO11 is high (pressed)! , shape : %s and area %f\n\r", shape, area.result[1]);
+            DEBUG_PRINTF("GPIO11 is high (pressed)! , shape : %s and area %f\n\r", shape, area.result[1]);
             Paint_DrawString_EN(0, 12, "Final value :", &Font12, WHITE, BLACK);
             Paint_DrawString_EN(93, 24, "     ", &Font12, WHITE, BLACK);
             Paint_DrawString_EN(79, 36, "        ", &Font12, WHITE, BLACK);
@@ -100,7 +100,7 @@ void user_interface() {
                 bool gpio11_state = !!((1ul << GPIO11) & sio_hw->gpio_in);
                 // Perform actions based on the GPIO11 state
                 if (!gpio11_state) {
-                    printf("Exiting after area is displayed\n\r");
+                    DEBUG_PRINTF("Exiting after area is displayed\n\r");
                     sleep_ms(500);
                     break;
                 }

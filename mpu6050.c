@@ -16,7 +16,7 @@
 #include "mpu6050.h"
 #include "stdint.h"
 #include "math.h"
-#include <stdio.h>
+#include "debug.h"
 
 // MPU6050 I2C address
 #define MPU6050_ADDRESS (0x68)
@@ -94,6 +94,5 @@ void read_tilt_angle(int16_t acceleration[3]){
     acceleration[1] = (int16_t)calculate_tilt_angle(acceleration[1]) * 2;
     acceleration[2] = (int16_t)calculate_tilt_angle(acceleration[2]) * 2;
 
-    // Print the calculated tilt angles for X and Y axes
-    printf("Acc. X = %d, Y = %d\n", acceleration[0], acceleration[1]);
+    DEBUG_PRINTF("Acc. X = %d, Y = %d\n", acceleration[0], acceleration[1]);
 }
