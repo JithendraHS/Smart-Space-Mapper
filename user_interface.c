@@ -21,9 +21,11 @@
 #include "string.h"
 #include <stdio.h>
 #include "pico/stdlib.h"
-#include <stdlib.h>
 #include "button.h"
 #include "area.h"
+
+/** Static OLED framebuffer (2048 bytes); avoids heap allocation on embedded target. */
+static UBYTE black_image[OLED_IMAGE_SIZE];
 
 /**
  * @brief Main user interface function
@@ -32,14 +34,8 @@
  * It continuously checks the states of GPIO10 and GPIO11 buttons to perform corresponding actions.
  */
 void user_interface() {
-    // Create a new image cache
-    UBYTE *BlackImage;
-    BlackImage = (UBYTE *)malloc(OLED_IMAGE_SIZE);
-    if (BlackImage == NULL) { 
-        // No enough memory
-        printf(" No enough memory\n");
-    }
-    
+    UBYTE *BlackImage = black_image;
+
     // Display the main menu
     menu(BlackImage);
 
